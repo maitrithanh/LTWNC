@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LTWNC.Models;
 
 namespace LTWNC.Controllers
 {
-    public class HomeController : Controller
+    public class ProductController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult Contact()
+        // GET: Product
+        public ActionResult Shop()
         {
             return View();
         }

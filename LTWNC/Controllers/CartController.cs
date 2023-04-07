@@ -7,13 +7,14 @@ using LTWNC.Models;
 
 namespace LTWNC.Controllers
 {
-    public class HomeController : Controller
+    public class CartController : Controller
     {
-        public ActionResult Index()
+        // GET: Cart
+        public ActionResult ShoppingCart()
         {
             return View();
         }
-        public ActionResult Contact()
+        public ActionResult ThanhToan()
         {
             return View();
         }

@@ -44,8 +44,9 @@
             </div>
             <div class="col-lg-3 col-6 text-right">
                 @*icon giỏ hàng*@
-                <a href="" class="btn border">
+                <a href="/Cart/ShoppingCart" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
+                    @*Số lượng sản phẩm trong giỏ hàng*@
                     <span class="badge">0</span>
                 </a>
             </div>
@@ -91,18 +92,18 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="/Home/Index" class="nav-item nav-link active">Trang chủ</a>
                             @*Danh sách sản phẩm*@
-                            <a href="#" class="nav-item nav-link">Shop</a>
+                            <a href="/Product/Shop" class="nav-item nav-link">Shop</a>
 
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tiện ích</a>
                                 <div class="dropdown-menu rounded-0 m-0">
                                     @*Trang giỏ hàng*@
-                                    <a href="cart.html" class="dropdown-item">Giỏ hàng</a>
+                                    <a href="/Cart/ShoppingCart" class="dropdown-item">Giỏ hàng</a>
                                     @*Trang Thanh toán*@
-                                    <a href="checkout.html" class="dropdown-item">Thanh toán</a>
+                                    <a href="/Cart/ThanhToan" class="dropdown-item">Thanh toán</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Liên hệ</a>
+                            <a href="/Home/Contact" class="nav-item nav-link">Liên hệ</a>
                         </div>
 
                         @*Login Register*@
@@ -169,9 +170,9 @@
                         <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-dark mb-2" href="/Home/Index"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
-                            <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
-                            <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Thanh toán</a>
-                            <a class="text-dark" href="#"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
+                            <a class="text-dark mb-2" href="/Cart/ShoppingCart"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
+                            <a class="text-dark mb-2" href="/Cart/ThanhToan"><i class="fa fa-angle-right mr-2"></i>Thanh toán</a>
+                            <a class="text-dark" href="/Home/Contact"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">
