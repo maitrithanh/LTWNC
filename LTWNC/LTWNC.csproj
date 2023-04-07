@@ -56,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -131,6 +133,60 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CHUCVU.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CTDH.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CTGIAOHANG.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DANHMUC.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DONHANG.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FEEDBACK.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHACHHANG.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHAOSAT.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KHUYENMAI.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOAIKHACHHANG.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LTWNC.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LTWNC.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LTWNC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LTWNC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LTWNC.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NHANVIEN.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SANPHAM.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TAIKHOAN.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -150,16 +206,82 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Css\carousel\css-carousel\ajax-loader.gif" />
+    <Content Include="Content\Css\carousel\css-carousel\owl.carousel.css" />
+    <Content Include="Content\Css\carousel\css-carousel\owl.carousel.min.css" />
+    <Content Include="Content\Css\carousel\css-carousel\owl.theme.default.css" />
+    <Content Include="Content\Css\carousel\css-carousel\owl.theme.default.min.css" />
+    <Content Include="Content\Css\carousel\css-carousel\owl.theme.green.css" />
+    <Content Include="Content\Css\carousel\css-carousel\owl.theme.green.min.css" />
+    <Content Include="Content\Css\carousel\css-carousel\owl.video.play.png" />
+    <Content Include="Content\Css\carousel\jq-carousef\owl.carousel.min.js" />
+    <Content Include="Content\Css\style.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Banner_10_nam_Pham_Duy_890x396px.jpg" />
+    <Content Include="Images\Banner_KM_Thang_4_890x396px-01.jpg" />
+    <Content Include="Images\Banner_Sach_NV_Free_gift_890x396px-01__2_.jpg" />
+    <Content Include="Images\bo-tuyet.jpg" />
+    <Content Include="Images\book1.png" />
+    <Content Include="Images\book2.png" />
+    <Content Include="Images\book3.png" />
+    <Content Include="Images\cambridge.jpg" />
+    <Content Include="Images\cengage.jpg" />
+    <Content Include="Images\doi-du-nu.jpg" />
+    <Content Include="Images\kinhtectri.png" />
+    <Content Include="Images\lichsudang.png" />
+    <Content Include="Images\luat-tam-thuc-bc.jpg" />
+    <Content Include="Images\macgrawhill.jpg" />
+    <Content Include="Images\macmilan.jpg" />
+    <Content Include="Images\miyama-dieu-nhay-danh-tang-rieng-anh.jpg" />
+    <Content Include="Images\oxford-02.jpg" />
+    <Content Include="Images\penguin.jpg" />
+    <Content Include="Images\LOGO.png" />
+    <Content Include="Images\su-song-vu-tru-va-van-vat.jpg" />
+    <Content Include="Images\su-thinh-vuong-dich-thuc.jpg" />
+    <Content Include="Images\tarot-wisdom-tap-2.jpg" />
+    <Content Include="Images\that-lac-coi-nguoi-tb-2022.jpg" />
+    <Content Include="Images\triethoc.png" />
+    <Content Include="Images\tthcm.png" />
+    <Content Include="Models\LTWNC.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LTWNC.edmx</DependentUpon>
+      <LastGenOutput>LTWNC.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\LTWNC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LTWNC.edmx</DependentUpon>
+      <LastGenOutput>LTWNC.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\LTWNC.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LTWNC.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\LTWNC.edmx.diagram">
+      <DependentUpon>LTWNC.edmx</DependentUpon>
+    </Content>
+    <Content Include="Scripts\JavaScript\easing\easing.js" />
+    <Content Include="Scripts\JavaScript\easing\easing.min.js" />
+    <Content Include="Scripts\JavaScript\owlcarousel\LICENSE" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\JavaScript\Home.js" />
+    <Content Include="Scripts\JavaScript\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Scripts\JavaScript\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Scripts\JavaScript\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Scripts\JavaScript\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Scripts\JavaScript\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Scripts\JavaScript\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Scripts\JavaScript\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Scripts\JavaScript\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Scripts\JavaScript\owlcarousel\owl.carousel.js" />
+    <Content Include="Scripts\JavaScript\owlcarousel\owl.carousel.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -181,13 +303,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutHomePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -215,6 +336,9 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
