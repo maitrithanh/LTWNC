@@ -38,5 +38,6 @@ namespace LTWNC.Models
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
+        public virtual DbSet<CONTACT> CONTACTs { get; set; }
     }
 }

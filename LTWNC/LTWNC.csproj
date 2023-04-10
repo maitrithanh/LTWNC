@@ -138,6 +138,9 @@
     <Compile Include="Models\CHUCVU.cs">
       <DependentUpon>LTWNC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CONTACT.cs">
+      <DependentUpon>LTWNC.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CTDH.cs">
       <DependentUpon>LTWNC.tt</DependentUpon>
     </Compile>
@@ -217,6 +220,7 @@
     <Content Include="Content\Css\carousel\css-carousel\owl.theme.green.min.css" />
     <Content Include="Content\Css\carousel\css-carousel\owl.video.play.png" />
     <Content Include="Content\Css\carousel\jq-carousef\owl.carousel.min.js" />
+    <Content Include="Content\Css\Home.css" />
     <Content Include="Content\Css\style.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
