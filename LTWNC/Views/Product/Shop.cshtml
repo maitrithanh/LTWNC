@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<LTWNC.Models.SANPHAM>
+
 @{
     ViewBag.Title = "EBook - Shop";
     Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
@@ -136,7 +137,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
                     <div class="card product-item border-0 mb-4">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                             @*Ảnh sách*@
@@ -157,6 +161,8 @@
                             <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
                         </div>
                     </div>
+
+                    }
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                     <div class="card product-item border-0 mb-4">
