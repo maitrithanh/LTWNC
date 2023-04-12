@@ -26,6 +26,7 @@ namespace LTWNC.Models
         }
     
         public virtual DbSet<CHUCVU> CHUCVUs { get; set; }
+        public virtual DbSet<CONTACT> CONTACTs { get; set; }
         public virtual DbSet<CTDH> CTDHs { get; set; }
         public virtual DbSet<CTGIAOHANG> CTGIAOHANGs { get; set; }
         public virtual DbSet<DANHMUC> DANHMUCs { get; set; }
@@ -38,6 +39,5 @@ namespace LTWNC.Models
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
-        public virtual DbSet<CONTACT> CONTACTs { get; set; }
     }
 }

@@ -6,7 +6,7 @@
 @{
     ViewBag.Title = "EBook - Shop";
     Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
-    int i = 0,j=0;
+    int i = 0, j = 0;
 }
 <link rel="stylesheet" href="~/Content/PagedList.css" />
 <!-- Shop Start -->
@@ -26,13 +26,13 @@
                             <input style="display:none;" type="text" id="domain1" name="max" value="" />
                         </div>
                     }
-                   
+                    
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
 
                         <input type="checkbox" onclick="setDomain()" class="custom-control-input" id="price-all">
                         <label class="custom-control-label" for="price-all">0đ - 200.000đ</label>
                         <span class="badge border font-weight-normal">@Html.Action("DemSPInGia", "Product", new { min = 0, max = 200000 })</span>
-                        
+
 
                     </div>
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
@@ -56,8 +56,8 @@
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                         <input type="checkbox" onclick="setDomain4()" class="custom-control-input" id="price-4">
                         <label class="custom-control-label" for="price-4">5.000.000đ - 10.000.000</label>
-                        <span class="badge border font-weight-normal">@Html.Action("DemSPInGia", "Product", new {max=10000000, min =5000000 })</span>
-                       
+                        <span class="badge border font-weight-normal">@Html.Action("DemSPInGia", "Product", new { max = 10000000, min = 5000000 })</span>
+
                     </div>
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                         <input type="checkbox" onclick="setDomain5()" class="custom-control-input" id="price-5">
@@ -82,8 +82,8 @@
                         }
                     </div>
                 </form>
-               
-                </div>
+
+            </div>
             <!-- Price End -->
             <!-- Lọc theo loại Start -->
             <div class="border-bottom mb-4 pb-4">
@@ -164,18 +164,21 @@
 <style>
     .matvien {
         border: none;
-        outline:none;
+        outline: none;
     }
+
     .matvien, .danhmuc {
         color: #6F6F6F;
     }
 
-    .danhmuc, .danhmuc:hover {
-        text-decoration: none;
-    }
+        .danhmuc, .danhmuc:hover {
+            text-decoration: none;
+        }
+
     .MenuTrang li {
         display: inline;
     }
+
     .loc {
         border: none;
         padding: 6px 24px;
@@ -184,43 +187,44 @@
         float: right;
         color: white;
     }
+
         .loc:hover {
             background-color: #f4bbb5;
         }
 </style>
 <script>
-        function setDomain(){
-            let domain = 0;
-            let domain1 =200000;
-            document.getElementById('domain').value = domain;
-            document.getElementById('domain1').value = domain1;
-        }
-        function setDomain1(){
-            let domain = 200000;
-            let domain1 =500000;
-            document.getElementById('domain').value = domain;
-            document.getElementById('domain1').value = domain1;
-        }
-        function setDomain2(){
-            let domain = 500000;
-            let domain1 =1000000;
-            document.getElementById('domain').value = domain;
-            document.getElementById('domain1').value = domain1;
-        }
-        function setDomain3(){
-            let domain = 1000000;
-            let domain1 =5000000;
-            document.getElementById('domain').value = domain;
-            document.getElementById('domain1').value = domain1;
-        }
-        function setDomain4(){
-            let domain = 5000000;
-            let domain1 =10000000;
-            document.getElementById('domain').value = domain;
-            document.getElementById('domain1').value = domain1;
-        }
-        function setDomain5(){
-            let domain = 10000000;
-            document.getElementById('domain').value = domain;
-        }
+    function setDomain() {
+        let domain = 0;
+        let domain1 = 200000;
+        document.getElementById('domain').value = domain;
+        document.getElementById('domain1').value = domain1;
+    }
+    function setDomain1() {
+        let domain = 200000;
+        let domain1 = 500000;
+        document.getElementById('domain').value = domain;
+        document.getElementById('domain1').value = domain1;
+    }
+    function setDomain2() {
+        let domain = 500000;
+        let domain1 = 1000000;
+        document.getElementById('domain').value = domain;
+        document.getElementById('domain1').value = domain1;
+    }
+    function setDomain3() {
+        let domain = 1000000;
+        let domain1 = 5000000;
+        document.getElementById('domain').value = domain;
+        document.getElementById('domain1').value = domain1;
+    }
+    function setDomain4() {
+        let domain = 5000000;
+        let domain1 = 10000000;
+        document.getElementById('domain').value = domain;
+        document.getElementById('domain1').value = domain1;
+    }
+    function setDomain5() {
+        let domain = 10000000;
+        document.getElementById('domain').value = domain;
+    }
 </script>

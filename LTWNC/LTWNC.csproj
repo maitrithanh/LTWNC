@@ -138,6 +138,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,8 +227,15 @@
     <Content Include="Content\Css\carousel\css-carousel\owl.theme.green.min.css" />
     <Content Include="Content\Css\carousel\css-carousel\owl.video.play.png" />
     <Content Include="Content\Css\carousel\jq-carousef\owl.carousel.min.js" />
-    <Content Include="Content\Css\Home.css" />
+    <Content Include="Content\Css\feedback.css" />
+    <Content Include="Content\Css\profile.css" />
+    <Content Include="Content\Css\purchaseOrder.css" />
     <Content Include="Content\Css\style.min.css" />
+    <Content Include="Content\Images\gian.jpg" />
+    <Content Include="Content\Images\gio-nam-tham-thi.jpg" />
+    <Content Include="Content\Images\me-con-su-tu.jpg" />
+    <Content Include="Content\Images\nguoi-phu-nu-uy-luc-nhat-o-day-la-ban.jpg" />
+    <Content Include="Content\Images\nhu-doa-hoa-suong.jpg" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -273,6 +281,11 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\JavaScript\bootstrap.min.js" />
+    <Content Include="Scripts\JavaScript\easing\easing.js" />
+    <Content Include="Scripts\JavaScript\easing\easing.min.js" />
+    <Content Include="Scripts\JavaScript\jquery.min.js" />
+    <Content Include="Scripts\JavaScript\owlcarousel\LICENSE" />
     <EntityDeploy Include="Models\LTWNC.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LTWNC.Designer.cs</LastGenOutput>
@@ -280,9 +293,6 @@
     <Content Include="Models\LTWNC.edmx.diagram">
       <DependentUpon>LTWNC.edmx</DependentUpon>
     </Content>
-    <Content Include="Scripts\JavaScript\easing\easing.js" />
-    <Content Include="Scripts\JavaScript\easing\easing.min.js" />
-    <Content Include="Scripts\JavaScript\owlcarousel\LICENSE" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\JavaScript\Home.js" />
     <Content Include="Scripts\JavaScript\owlcarousel\assets\ajax-loader.gif" />
@@ -300,12 +310,15 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -322,6 +335,17 @@
     <Content Include="Views\Cart\ShoppingCart.cshtml" />
     <Content Include="Views\Cart\ThanhToan.cshtml" />
     <Content Include="Views\Product\Shop.cshtml" />
+    <Content Include="Views\Product\LayDanhMuc.cshtml" />
+    <Content Include="Views\Product\SPTheoDanhMuc.cshtml" />
+    <Content Include="Views\Product\DemSPInDM.cshtml" />
+    <Content Include="Views\Product\DemSPInGia.cshtml" />
+    <Content Include="Views\Profile\PurchaseOrder.cshtml" />
+    <Content Include="Views\Profile\TrangThaiCB.cshtml" />
+    <Content Include="Views\Profile\CancelOrder.cshtml" />
+    <Content Include="Views\Profile\ListProductstatus.cshtml" />
+    <Content Include="Views\Profile\datatable.cshtml" />
+    <Content Include="Views\Product\Feadback.cshtml" />
+    <Content Include="Views\Product\InfoSPFeeback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
