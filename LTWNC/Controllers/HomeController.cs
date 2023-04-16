@@ -26,5 +26,69 @@ namespace LTWNC.Controllers
             database.SaveChanges();
             return View();
         }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(TAIKHOAN _tk)
+        {
+            if (ModelState.IsValid)
+            {
+                var check = database.TAIKHOANs.FirstOrDefault(s => s.ID == _tk.ID);
+                if (check == null)
+                {
+
+                    database.Configuration.ValidateOnSaveEnabled = true;
+                    database.TAIKHOANs.Add(_tk);
+                    database.SaveChanges();
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ViewBag.error = "Tài khoản email đã tồn tại ! Vui lòng sử dụng tài khoản email khác";
+                    return View();
+                }
+
+            }
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string USERNAME, string MATKHAU)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = database.TAIKHOANs.Where(s => s.USERNAME.Equals(USERNAME) && s.MATKHAU.Equals(MATKHAU)).ToList();
+                if (data.Count() > 0)
+                {
+                    // add session :
+                    Session["ID"] = data.FirstOrDefault().ID + " " + data.FirstOrDefault().ID;
+                    Session["USERNAME"] = data.FirstOrDefault().USERNAME;
+                    Session["MATKHAU"] = data.FirstOrDefault().MATKHAU;
+                    Session["VAITRO"] = data.FirstOrDefault().VAITRO;
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.Error = "Login Failed";
+                    return RedirectToAction("Register");
+                }
+
+            }
+            return View();
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
+        }
     }
 }

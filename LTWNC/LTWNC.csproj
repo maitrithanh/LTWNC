@@ -346,6 +346,8 @@
     <Content Include="Views\Profile\datatable.cshtml" />
     <Content Include="Views\Product\Feadback.cshtml" />
     <Content Include="Views\Product\InfoSPFeeback.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
