@@ -8,7 +8,7 @@ namespace LTWNC.Controllers
 {
     public class ProfileController : Controller
     {
-        LTWNCEntities1 database = new LTWNCEntities1();
+        LTWNCEntities database = new LTWNCEntities();
         // GET: Profile
         public ActionResult Index()
         {

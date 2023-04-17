@@ -9,7 +9,7 @@ namespace LTWNC.Controllers
 {
     public class HomeController : Controller
     {
-        LTWNCEntities1 database = new LTWNCEntities1();
+        LTWNCEntities database = new LTWNCEntities();
         public ActionResult Index()
         {
             return View();
