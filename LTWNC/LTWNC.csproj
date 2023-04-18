@@ -137,6 +137,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\NotiController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -233,18 +235,24 @@
     <Content Include="Content\Css\purchaseOrder.css" />
     <Content Include="Content\Css\style.min.css" />
     <Content Include="Content\Css\user.css" />
+    <Content Include="Content\globalStyles.css" />
+    <Content Include="Content\Images\avatar.jpg" />
     <Content Include="Content\Images\avatar.png" />
     <Content Include="Content\Images\email.png" />
     <Content Include="Content\Images\gian.jpg" />
     <Content Include="Content\Images\gio-nam-tham-thi.jpg" />
     <Content Include="Content\Images\id-card.png" />
     <Content Include="Content\Images\key.png" />
+    <Content Include="Content\Images\LOGO.png" />
     <Content Include="Content\Images\me-con-su-tu.jpg" />
     <Content Include="Content\Images\nguoi-phu-nu-uy-luc-nhat-o-day-la-ban.jpg" />
     <Content Include="Content\Images\nhu-doa-hoa-suong.jpg" />
+    <Content Include="Content\Images\No_Image_Available.jpg" />
     <Content Include="Content\Images\phone-call.png" />
     <Content Include="Content\Images\placeholder.png" />
     <Content Include="Content\Images\user.png" />
+    <Content Include="Content\management-form.css" />
+    <Content Include="Content\ManagementLayout.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -359,6 +367,9 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Shared\_LayoutManagement.cshtml" />
+    <Content Include="Views\Management\Index.cshtml" />
+    <Content Include="Views\Noti\NotificationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

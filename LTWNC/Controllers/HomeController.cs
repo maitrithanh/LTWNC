@@ -92,11 +92,13 @@ namespace LTWNC.Controllers
                     {
                         var IDUSER = Convert.ToString(taikhoan.ID);
                         var khachhang = database.KHACHHANGs.FirstOrDefault(kh => kh.MAKH == IDUSER);
+                        var nhanvien = database.NHANVIENs.FirstOrDefault(kh => kh.IDNV == IDUSER);
                         var userLogin = database.TAIKHOANs.FirstOrDefault(kh => kh.ID == taikhoan.ID);
                         ViewBag.ThongBao = "Đăng nhập thành công";
                         Session["TaiKhoan"] = khachhang;
                         Session["User"] = userLogin;
                         Session["MaUser"] = taikhoan.ID;
+                        Session["NhanVien"] = nhanvien;
                         if (taikhoan.VAITRO != "ADMIN")
                         {
                             return RedirectToAction("Index", "Home");
@@ -116,7 +118,7 @@ namespace LTWNC.Controllers
         public ActionResult LogOut()
         {
             Session.Clear();
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
