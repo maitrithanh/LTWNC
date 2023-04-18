@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using LTWNC.Models;
 
 
-namespace CNPMNC.Controllers
+namespace LTWNC.Controllers
 {
 
     public class ManagementController : Controller
