@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "EBook - Giỏ hàng";
     Layout = "~/Views/Shared/_LayoutBase.cshtml";
+    KHACHHANG customer = Session["TaiKhoan"] as KHACHHANG;
 }
 
 <!-- Cart Start -->
@@ -79,36 +80,112 @@
             </table>
         </div>
         <div class="col-lg-4">
-            <form class="mb-5" action="">
-                <div class="input-group">
-                    @*Thêm voucher*@
-                    <input type="text" class="form-control p-4" placeholder="Mã giảm giá">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary">Thêm Voucher</button>
+            @if (Session["TaiKhoan"] != null)
+            {
+                <div class="card border-secondary mb-5">
+                    <div class="form-space-between">
+                        <div class="card-header bg-secondary border-0" style="display: flex;">
+                            <h4 class="font-weight-semi-bold m-0">Giao tới</h4>
+                            <span style="position: absolute; right: 10px;">
+                                @Html.ActionLink("Thay đổi", "ResetAddress", null, new { @class = "resetAddress" })
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <input type="text" name="HOTENKH" value="@customer.HOTENKH" placeholder="Họ tên" style="background: white;" class="form-control p-4" readonly />
+                        <input type="text" name="SDT" value="@customer.SDT" placeholder="Số điện thoại" style="background: white;" class="form-control p-4" readonly />
+                        <input type="text" name="DIACHI" value="@customer.DIACHI" placeholder="Địa chỉ" style="background: white;" class="form-control p-4" readonly />
                     </div>
                 </div>
-            </form>
-            <div class="card border-secondary mb-5">
-                <div class="card-header bg-secondary border-0">
-                    <h4 class="font-weight-semi-bold m-0">Tổng tiền</h4>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-between mb-3 pt-1">
-                        @*Tiền sách tổng*@
-                        <h6 class="font-weight-medium">Tiền sách</h6>
-                        <h6 class="font-weight-medium">@Convert.ToDecimal(ViewBag.TotalPrice).ToString("N0")đ</h6>
+                <form class="mb-5" action="">
+                    <div class="input-group">
+                        @*Thêm voucher*@
+                        <input type="text" class="form-control p-4" placeholder="Mã giảm giá">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary">Thêm Voucher</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="card border-secondary mb-5">
+                    <div class="card-header bg-secondary border-0">
+                        <h4 class="font-weight-semi-bold m-0">Tổng tiền</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3 pt-1">
+                            @*Tiền sách tổng*@
+                            <h6 class="font-weight-medium">Tiền sách</h6>
+                            <h6 class="font-weight-medium">@Convert.ToDecimal(ViewBag.TotalPrice).ToString("N0")đ</h6>
+                        </div>
+                    </div>
+                    <div class="card-footer border-secondary bg-transparent">
+                        <div class="d-flex justify-content-between mt-2">
+                            @*Tổng tiền tất cả*@
+                            <h5 class="font-weight-bold">Tổng cộng</h5>
+                            <h5 class="font-weight-bold">@Convert.ToDecimal(ViewBag.TotalPrice).ToString("N0")đ</h5>
+                        </div>
+                        @*Bấm thanh toán chuyển sang trang Thanh Toán*@
+                        @Html.ActionLink("Tiến hành thanh toán", "ConfirmCart", null, new { @class = "btn btn-block btn-primary my-3 py-3" })
                     </div>
                 </div>
-                <div class="card-footer border-secondary bg-transparent">
-                    <div class="d-flex justify-content-between mt-2">
-                        @*Tổng tiền tất cả*@
-                        <h5 class="font-weight-bold">Tổng cộng</h5>
-                        <h5 class="font-weight-bold">@Convert.ToDecimal(ViewBag.TotalPrice).ToString("N0")đ</h5>
+            }
+            else
+            {
+                using (Html.BeginForm("ConfirmCart", "Cart", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="card border-secondary mb-5">
+                        <div class="form-space-between">
+                            <div class="card-header bg-secondary border-0" style="display: flex;">
+                                <h4 class="font-weight-semi-bold m-0">Giao tới</h4>
+                                <span style="position: absolute; right: 10px;">
+                                    @Html.ActionLink("Thay đổi", "ResetAddress", null, new { @class = "resetAddress" })
+                                </span>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <input type="text" name="HOTENKH" value="" placeholder="Họ tên" class="form-control p-4" required />
+                            <input type="text" name="SDT" value="" placeholder="Số điện thoại" class="form-control p-4" required />
+                            <input type="text" name="DIACHI" value="" placeholder="Địa chỉ" class="form-control p-4" required />
+                        </div>
                     </div>
-                    @*Bấm thanh toán chuyển sang trang Thanh Toán*@
-                    @Html.ActionLink("Tiến hành thanh toán", "ConfirmCart", null, new { @class = "btn btn-block btn-primary my-3 py-3" })
-                </div>
-            </div>
+
+                    <div class="input-group mb-5">
+                        @*Thêm voucher*@
+                        <input type="text" class="form-control p-4" placeholder="Mã giảm giá" value="">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary">Thêm Voucher</button>
+                        </div>
+                    </div>
+                    <div class="card border-secondary mb-5">
+                        <div class="card-header bg-secondary border-0">
+                            <h4 class="font-weight-semi-bold m-0">Tổng tiền</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3 pt-1">
+                                @*Tiền sách tổng*@
+                                <h6 class="font-weight-medium">Tạm tính</h6>
+                                <h6 class="font-weight-medium">@Convert.ToDecimal(ViewBag.TotalPrice).ToString("N0")đ</h6>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3 pt-1">
+                                @*Tiền sách tổng*@
+                                <h6 class="font-weight-medium">Giảm giá</h6>
+                                <h6 class="font-weight-medium">0đ</h6>
+                            </div>
+                        </div>
+                        <div class="card-footer border-secondary bg-transparent">
+                            <div class="d-flex justify-content-between mt-2">
+                                @*Tổng tiền tất cả*@
+                                <h5 class="font-weight-bold">Tổng cộng</h5>
+                                <h5 class="font-weight-bold">@Convert.ToDecimal(ViewBag.TotalPrice).ToString("N0")đ</h5>
+                            </div>
+                            @*Bấm thanh toán chuyển sang trang Thanh Toán*@
+                        </div>
+                    </div>
+                    <div style=" margin-top: 16px;">
+                        <input type="submit" value="Đặt Hàng" class="btn btn-block btn-primary my-3 py-3" />
+                    </div>
+                }
+            }
         </div>
     </div>
 </div>

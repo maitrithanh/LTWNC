@@ -1,7 +1,7 @@
 ﻿@*@model LTWNC.Models.TAIKHOAN*@
 @{
     ViewBag.Title = "Đăng Nhập";
-    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+    Layout = "~/Views/Shared/_LayoutBase.cshtml";
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -14,11 +14,11 @@
     {
         @Html.ValidationSummary(true)
         <div class="box input-box">
-            <input type="text" class="form-control input-form" id="username" name="USERNAME" required placeholder="Nhập vào tài khoản ">
+            <input type="text" style="background: white" class="form-control input-form" id="username" name="USERNAME" required placeholder="Nhập vào tài khoản ">
             <img src="~/Content/Images/id-card.png" class="img-icon" alt="" width="46" />
         </div>
         <div class="box input-box">
-            <input type="password" class="form-control input-form" id="pwd" name="MATKHAU" required placeholder="Nhập vào mật khẩu">
+            <input type="password" style="background: white" class="form-control input-form" id="pwd" name="MATKHAU" required placeholder="Nhập vào mật khẩu">
             <img src="~/Content/Images/key.png" class="img-icon" alt="" width="46" />
         </div>
         <button type="submit" class="btn btn-primary" style="margin-top: 1rem; display: inline-block; padding: .9rem 3rem;">ĐĂNG NHẬP</button>
