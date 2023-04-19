@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -211,6 +211,11 @@ namespace LTWNC.Controllers
             database.SANPHAMs.Remove(sp);
             database.SaveChanges();
             return Redirect("/Management/ProductsManagement");
+        }
+        public ActionResult SoLSP()
+        {
+            var sp = database.SANPHAMs.ToList();
+            return PartialView(sp);
         }
     }
 }
