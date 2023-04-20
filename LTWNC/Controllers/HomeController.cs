@@ -99,6 +99,7 @@ namespace LTWNC.Controllers
                         Session["User"] = userLogin;
                         Session["MaUser"] = taikhoan.ID;
                         Session["NhanVien"] = nhanvien;
+                        Session["IDKH"] = taikhoan.ID;
                         if (taikhoan.VAITRO != "ADMIN")
                         {
                             return RedirectToAction("Index", "Home");

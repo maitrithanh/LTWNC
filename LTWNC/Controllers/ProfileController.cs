@@ -18,8 +18,8 @@ namespace LTWNC.Controllers
         public ActionResult PurchaseOrder()
         {
             int id = 1;
-            Session["IDKH"] = 1;
-            //int.TryParse(Convert.ToString(Session["IDKH"]), out id);
+            //Session["IDKH"] = 1;
+            int.TryParse(Convert.ToString(Session["IDKH"]), out id);
             return View(database.DONHANGs.Where(s => s.IDKH == id).ToList());
         }
         public ActionResult ListProductstatus(int id)
