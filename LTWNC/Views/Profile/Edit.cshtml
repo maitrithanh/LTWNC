@@ -1,7 +1,7 @@
 ﻿@model LTWNC.Models.KHACHHANG
 @{
     ViewBag.Title = @Html.DisplayFor(model => model.HOTENKH);
-    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+    Layout = "~/Views/Shared/_LayoutBase.cshtml";
 }
 <link rel="stylesheet" href="~/Content/css/profile.css" />
 
@@ -59,6 +59,10 @@
 
             <div>
                 <i class="ti-clipboard" style="color:#007bff;margin-right:5px;"></i><a href="/Profile/PurchaseOrder" style="color:black;">Đơn hàng</a>
+            </div>
+
+            <div>
+                <i class="ti-truck" style="color:#007bff;margin-right:5px;"></i><a href="/Profile/TrackingPartial" style="color:black;">Theo dõi đơn hàng</a>
             </div>
 
             <div>

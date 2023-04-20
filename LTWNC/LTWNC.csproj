@@ -381,6 +381,8 @@
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Cart\ConfirmCart.cshtml" />
     <Content Include="Views\Cart\SuccessOrder.cshtml" />
+    <Content Include="Views\Management\Tracking.cshtml" />
+    <Content Include="Views\Profile\TrackingPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

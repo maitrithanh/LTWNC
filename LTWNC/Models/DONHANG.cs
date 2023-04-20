@@ -11,7 +11,8 @@ namespace LTWNC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DONHANG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +24,7 @@ namespace LTWNC.Models
     
         public int IDDH { get; set; }
         public Nullable<int> IDKH { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> NGAYDAT { get; set; }
         public Nullable<int> TRANGTHAIDH { get; set; }
         public string PHUONGTHUCTHANHTOAN { get; set; }

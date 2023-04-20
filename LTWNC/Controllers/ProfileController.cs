@@ -97,5 +97,10 @@ namespace LTWNC.Controllers
                 return Content(Convert.ToString(e));
             }
         }
+        public ActionResult TrackingPartial(int? id)
+        {
+            var trackingOrder = database.CTGIAOHANGs.Where(s => s.IDDH == id).ToList();
+            return PartialView(trackingOrder);
+        }
     }
 }
