@@ -4,7 +4,7 @@
 @model PagedList.PagedList<SANPHAM>
 
 @{
-    ViewBag.Title = "EBook - Shop";
+    ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
     int i = 0,j=0;
 }
@@ -108,13 +108,12 @@
         <div class="col-lg-9 col-md-12">
             <div class="row pb-3">
                 <div class="col-12 pb-1">
-                    <div class="d-flex align-items-center justify-content-between mb-4" style="float:right;">
-                        <form action="">
+                    <div class="d-flex align-items-center justify-content-between mb-4" style="float: right; ">
+                        <form action="" >
                             <div class="input-group">
                                 @*Tìm kiếm theo tên*@
                                 @using (Html.BeginForm("Shop", "Product", FormMethod.Get))
                                 {
-
                                     <input type="text" class="form-control" id="SearchString" name="SearchString" placeholder="Tìm theo tên">
                                     <div class="input-group-append">
                                         <button type="submit" style="border:none">
@@ -129,7 +128,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row"  style="padding-left: 20px;">
                     @foreach (var item in Model)
                     {
                         <div class="card product-item border-0 mb-4" style="width:350px; height:501px">
@@ -188,9 +187,9 @@
         float: right;
         color: white;
     }
-        .loc:hover {
-            background-color: #f4bbb5;
-        }
+    .loc:hover {
+        background-color: #f4bbb5;
+    }
 </style>
 <script>
         function setDomain(){

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -44,9 +45,18 @@
             border: none;
             background-color: #D19C97;
         }
-        a button:hover {
-            color: #FFFFFF;
+
+            a button:hover {
+                color: #FFFFFF;
+            }
+
+        .dropdown-toggle {
+            color: #C17A74;
         }
+
+            .dropdown-toggle:hover {
+                color: #BA6A62;
+            }
     </style>
     <!-- Topbar Start -->
     <div class="container-fluid">
@@ -59,12 +69,15 @@
             <div class="col-lg-6 col-6 text-left">
                 <form action="">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
+                        @using (Html.BeginForm("Shop", "Product", FormMethod.Get))
+                        {
+                            <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                            <div class="input-group-append">
+                                <span class="input-group-text bg-transparent text-primary">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                            </div>
+                        }
                     </div>
                 </form>
             </div>
@@ -73,7 +86,7 @@
                 <a href="/Cart/ShoppingCart" class="btn border">
                     <i class="fas fa-shopping-cart text-primary"></i>
                     @*Số lượng sản phẩm trong giỏ hàng*@
-                    <span class="badge">0</span>
+                    <span class="badge" @Html.Action("CartPartial", "Cart")</span>
                 </a>
             </div>
 
@@ -91,16 +104,13 @@
                 </a>
                 <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                     <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                        <a href="" class="nav-item nav-link">Khoa học thiên văn</a>
-                        <a href="" class="nav-item nav-link">Văn học</a>
-                        <a href="" class="nav-item nav-link">Kinh tế</a>
-                        <a href="" class="nav-item nav-link">Tâm lí - kĩ năng sống</a>
-                        <a href="" class="nav-item nav-link">Sách thiếu nhi</a>
-                        <a href="" class="nav-item nav-link">Tiểu sử hồi ký</a>
-                        <a href="" class="nav-item nav-link">Sách giáo khoa</a>
-                        <a href="" class="nav-item nav-link">Ngoại ngữ</a>
-                        <a href="" class="nav-item nav-link">Sách tham khảo</a>
-                        <a href="" class="nav-item nav-link">Luyện thi</a>
+                        <a href="/Product/Shop" class="nav-item nav-link">Sách Công Nghệ</a>
+                        <a href="/Product/Shop" class="nav-item nav-link">Sách Giáo Khoa</a>
+                        <a href="/Product/Shop" class="nav-item nav-link">Sách Kinh Doanh</a>
+                        <a href="/Product/Shop" class="nav-item nav-link">Sách Khoa Học</a>
+                        <a href="/Product/Shop" class="nav-item nav-link">Sách Tâm Linh/Phong Thủy</a>
+                        <a href="/Product/Shop" class="nav-item nav-link">Truyện tranh</a>
+                        <a href="/Product/Shop" class="nav-item nav-link">Văn học</a>
                     </div>
                 </nav>
             </div>
@@ -119,24 +129,15 @@
                             <a href="/Home/Index" class="nav-item nav-link active">Trang chủ</a>
                             @*Danh sách sản phẩm*@
                             <a href="/Product/Shop" class="nav-item nav-link">Shop</a>
-
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tiện ích</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    @*Trang giỏ hàng*@
-                                    <a href="/Cart/ShoppingCart" class="dropdown-item">Giỏ hàng</a>
-                                    @*Trang Thanh toán*@
-                                    <a href="/Cart/ThanhToan" class="dropdown-item">Thanh toán</a>
-                                </div>
-                            </div>
+                            <a href="/Cart/ShoppingCart" class="nav-item nav-link">Giỏ hàng</a>
                             <a href="/Home/Contact" class="nav-item nav-link">Liên hệ</a>
                         </div>
 
                         @*Login Register*@
                         @*<div class="navbar-nav ml-auto py-0">
-                        <a href="/Home/Login" class="nav-item nav-link">Đăng nhập</a>
-                        <a href="/Home/Register" class="nav-item nav-link">Đăng ký</a>
-                        </div>*@
+                            <a href="/Home/Login" class="nav-item nav-link">Đăng nhập</a>
+                            <a href="/Home/Register" class="nav-item nav-link">Đăng ký</a>
+                            </div>*@
                         <div class="nav-item dropdown">
                             @{LTWNC.Models.KHACHHANG acc = Session["TaiKhoan"] as LTWNC.Models.KHACHHANG; }
 
@@ -248,7 +249,7 @@
                                        required="required" />
                             </div>
                             <div>
-                                <button class="btn btn-primary btn-block border-0 py-3" type="submit">Đăng ký ngay</button>
+                                <button class="btn btn-primary btn-block border-0 py-3" style="background-color: #D19C97;" type="submit">Đăng ký ngay</button>
                             </div>
                         </form>
                     </div>
@@ -270,7 +271,7 @@
     </div>
     <!-- Footer End -->
     <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#" style="background-color: #D19C97; border: none" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -296,6 +297,5 @@
 
     <!-- Template Javascript -->
     <script src="~/Scripts/JavaScript/Home.js"></script>
-=
 </body>
 </html>
