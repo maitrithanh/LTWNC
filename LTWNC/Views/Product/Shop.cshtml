@@ -131,16 +131,16 @@
                 <div class="row"  style="padding-left: 20px;">
                     @foreach (var item in Model)
                     {
-                        <div class="card col-lg-4 product-item border-0 mb-4" style="width:350px; height:501px">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <div class="card col-lg-4 product-item border-0 mb-4" style="width:350px; height:500px">
+                            <div style="height: 500px" class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img class="img-fluid w-100" src="@Url.Content(item.HINHSP)" alt="@Html.DisplayFor(modelItem => item.TENSP)" />
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 @*Tên sách*@
-                                <h6 class="text-truncate mb-3">@item.TENSP</h6>
+                                <h6 style="font-size: 18px;" class="text-truncate mb-3">@item.TENSP</h6>
                                 <div class="d-flex justify-content-center">
                                     @*Giá sách*@
-                                    <h6>@Convert.ToDecimal(item.DONGIA).ToString("N0")đ</h6>
+                                    <h6 style="font-size: 20px; color: #ED0000; ">@Convert.ToDecimal(item.DONGIA).ToString("N0")đ</h6>
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-between bg-light border">

@@ -217,5 +217,29 @@ namespace LTWNC.Controllers
             var sp = database.SANPHAMs.ToList();
             return PartialView(sp);
         }
+
+        public ActionResult LayHinh()
+        {
+            var hinh = database.SANPHAMs.ToList();
+            return PartialView(hinh);
+        }
+        public ActionResult ProductDetail(int id = 1)
+        {
+            return View(database.SANPHAMs.Where(s => s.IDSP == id).FirstOrDefault());
+        }
+        private List<SANPHAM> ListSP(string id, int soluong)
+        {
+            return database.SANPHAMs.Where(s => s.IDDANHMUC == id).Take(soluong).ToList();
+        }
+        public ActionResult SanPhamCungLoai(string id)
+        {
+            var dsSanpham = ListSP(id, 3);
+            return PartialView(dsSanpham);
+        }
+        public ActionResult SanPhamCoTheThich()
+        {
+            var listProducts = database.SANPHAMs.OrderByDescending(sp => sp.TENSP).ToList();
+            return PartialView(listProducts);
+        }
     }
 }

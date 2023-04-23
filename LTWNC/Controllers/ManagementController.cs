@@ -69,6 +69,7 @@ namespace LTWNC.Controllers
         public ActionResult Tracking(int id, FormCollection form)
         {
             CTGIAOHANG gh = new CTGIAOHANG();
+            DONHANG dh = new DONHANG();
             if (string.IsNullOrEmpty(gh.VITRIGIAO))
                 ModelState.AddModelError(string.Empty, "Vị trí giao không được để trống");
             try

@@ -233,6 +233,8 @@
     <Content Include="Content\Css\carousel\jq-carousef\owl.carousel.min.js" />
     <Content Include="Content\Css\feedback.css" />
     <Content Include="Content\Css\Home.css" />
+    <Content Include="Content\Css\product.css" />
+    <Content Include="Content\Css\productDetail.css" />
     <Content Include="Content\Css\profile.css" />
     <Content Include="Content\Css\purchaseOrder.css" />
     <Content Include="Content\Css\style.min.css" />
@@ -389,6 +391,10 @@
     <Content Include="Views\Personnel\Edit.cshtml" />
     <Content Include="Views\Personnel\Details.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Product\SanPhamCungLoai.cshtml" />
+    <Content Include="Views\Product\LayHinh.cshtml" />
+    <Content Include="Views\Product\SanPhamCoTheThich.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

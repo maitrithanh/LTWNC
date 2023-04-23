@@ -29,17 +29,20 @@
 
         <div class="choose">
             @*@if (Session["TaiKhoan"] != null)
-                {
-                    CNPMNC.Models.KHACHHANG taikhoan = Session["TaiKhoan"] as CNPMNC.Models.KHACHHANG;
-                    @Html.Action("Layanh", "Profile", new { id = taikhoan.IDKH });
-                }*@
+        {
+            CNPMNC.Models.KHACHHANG taikhoan = Session["TaiKhoan"] as CNPMNC.Models.KHACHHANG;
+            @Html.Action("Layanh", "Profile", new { id = taikhoan.IDKH });
+        }*@
 
             <i class="ti-info-alt" style="color:#007bff; margin-right:5px;"></i>Tài khoản của tôi
 
             <div class="tk"><a href="/Profile/Edit" style="color:gray;">Hồ sơ</a></div>
             <div class="tk" style="margin-top:-21px;margin-right:5px;"><a href="#" style="color:gray;">Đổi mật khẩu</a> </div>
             <div>
-                <i class="ti-clipboard" style="color:#007bff;margin-right:5px;"></i><a href="/Profile/Don" style="color:black;">Đơn hàng</a>
+                <i class="ti-clipboard" style="color:#007bff;margin-right:5px;"></i><a href="/Profile/PurchaseOrder" style="color:black;">Đơn hàng</a>
+            </div>
+            <div>
+                <i class="ti-truck" style="color:#007bff;margin-right:5px;"></i><a href="/Profile/TrackingPartial" style="color:black;">Theo dõi đơn hàng</a>
             </div>
             <div>
                 <i class="ti-bell" style="color: #ee4d2d;margin-right:5px;"></i><a href="#" style="color:black;">Thông báo</a>

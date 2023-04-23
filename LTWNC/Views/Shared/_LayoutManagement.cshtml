@@ -21,6 +21,7 @@
                         <i class="fa-solid fa-chart-line"></i> Thống Kê
                     </a>
                 </li>
+
                 <li class="@(ViewBag.Current == "QuanLySanPham" ? "active" : "")">
                     <a href="@Url.Action("ProductsManagement", "Management")">
                         <i class="fa-solid fa-boxes-stacked"></i> Quản Lý Sản Phẩm
@@ -29,14 +30,16 @@
 
                 <li>
                     <a href="/Management/QuanLyDonHang"><i class="fa-solid fa-box"></i> Quản Lý Đơn Hàng</a>
+                </li>
+
                 <li class="@(ViewBag.Current == "QuanLyThanhVien" ? "active" : "")">
-                    <a href="@Url.Action("ThanhVien", "Management")">
+                    <a href="@Url.Action("Index", "Personnel")">
                         <i class="fa-solid fa-user"></i> Quản Lý Thành Viên
                     </a>
                 </li>
 
                 <li class="@(ViewBag.Current == "QuanLyDanhMuc" ? "active" : "")">
-                    <a href="@Url.Action("Index", "Personnel")">
+                    <a href="@Url.Action("#", "#")">
                         <i class="fa-solid fa-box"></i> Quản Lý Danh Mục
                     </a>
                 </li>
