@@ -9,8 +9,8 @@
 <!-- Cart Start -->
 <div class="container-fluid">
     <div class="row px-xl-5">
-        <div class="col-lg-8 table-responsive mb-5">
-            <table class="table table-bordered text-center mb-0">
+        <div class="col-lg-8 mb-5">
+            <table class="table table-striped text-center mb-0">
                 <thead class="bg-secondary text-dark">
                     <tr>
                         <th>Tên sách</th>
@@ -21,14 +21,14 @@
                     </tr>
                 </thead>
                 <tbody class="align-middle">
-                    <tr>
-                        @if (Convert.ToInt32(ViewBag.TotalNumber) >= 1)
+                    @if (Convert.ToInt32(ViewBag.TotalNumber) >= 1)
+                    {
+                        foreach (var product in Model)
                         {
-                            foreach (var product in Model)
-                            {
+                            <tr>
                                 @*Tên sách*@
                                 <td class="align-middle">
-                                    <a href="@Url.Action("ProductDetai", "Product", new {id = product.IDSP})">
+                                    <a href="@Url.Action("ProductDetai", "Product", new { id = product.IDSP })">
                                         <img src="@Url.Content(product.HINHANHSP)" height="100" width="100" class="p-2" />
                                         @product.TENSP
                                     </a>
@@ -63,19 +63,19 @@
                                         <i class="fa fa-times"></i>
                                     </a>
                                 </td>
-                            }
+                            </tr>
                         }
-                        else
-                        {
-                            <td style="text-align: center" colspan="5">
-                                <p style="padding: 10px; color: red; font-size: 18px;">
-                                    @if (ViewBag.ThongBaoCartNull != null)
-                                    {@ViewBag.ThongBaoCartNull}
-                                </p>
-                                @Html.Action("CartNull", "Cart")
-                            </td>
-                        }
-                    </tr>
+                     }
+                     else
+                     {
+                         <td style = "text-align: center" colspan = "5" >
+                             <p style = "padding: 10px; color: red; font-size: 18px;" >
+                             @if (ViewBag.ThongBaoCartNull != null)
+                             {@ViewBag.ThongBaoCartNull}
+                             </p >
+                             @Html.Action("CartNull", "Cart")
+                         </td>
+                     }
                 </tbody>
             </table>
         </div>

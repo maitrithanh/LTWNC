@@ -1,0 +1,57 @@
+﻿@model LTWNC.Models.KHUYENMAI
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>KHUYENMAI</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENKM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENKM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIATRI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIATRI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYTAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYTAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYHET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYHET)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

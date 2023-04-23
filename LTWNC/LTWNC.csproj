@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LTWNC</RootNamespace>
     <AssemblyName>LTWNC</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KHUYENMAIsController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Controllers\NotiController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -381,6 +382,12 @@
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\Cart\ConfirmCart.cshtml" />
     <Content Include="Views\Cart\SuccessOrder.cshtml" />
+    <Content Include="Views\Management\ThanhVien.cshtml" />
+    <Content Include="Views\KHUYENMAIs\Create.cshtml" />
+    <Content Include="Views\KHUYENMAIs\Delete.cshtml" />
+    <Content Include="Views\KHUYENMAIs\Details.cshtml" />
+    <Content Include="Views\KHUYENMAIs\Edit.cshtml" />
+    <Content Include="Views\KHUYENMAIs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

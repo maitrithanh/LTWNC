@@ -1,0 +1,52 @@
+﻿@model IEnumerable<LTWNC.Models.KHUYENMAI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+}
+
+<h2 class="justi">Khuyến mãi</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENKM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIATRI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYTAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYHET)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIATRI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYTAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYHET)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDKM }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDKM }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDKM })
+        </td>
+    </tr>
+}
+
+</table>
