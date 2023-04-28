@@ -139,7 +139,7 @@ namespace LTWNC.Controllers
             return Redirect("/Management/KhaoSat");
         }
 
-        public ActionResult Details(int id)
+        public ActionResult DetailsKS(int id)
         {
 
             var nv = database.KHAOSATs.Where(s => s.IDKHAOSAT == id).FirstOrDefault();

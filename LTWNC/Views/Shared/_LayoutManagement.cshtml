@@ -44,6 +44,12 @@
                     </a>
                 </li>
 
+                <li class="@(ViewBag.Current == "KhaoSat" ? "active" : "")">
+                    <a href="@Url.Action("KhaoSat", "Management")">
+                        <i class="fa-solid fa-box"></i> Quản Lý Khảo Sát
+                    </a>
+                </li>
+
                 <li>
                     <i class="fa-solid fa-power-off"></i> @Html.ActionLink("Đăng xuất", "Logout", "Home")
                 </li>
