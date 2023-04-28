@@ -395,6 +395,8 @@
     <Content Include="Views\Product\SanPhamCungLoai.cshtml" />
     <Content Include="Views\Product\LayHinh.cshtml" />
     <Content Include="Views\Product\SanPhamCoTheThich.cshtml" />
+    <Content Include="Views\Home\KhaoSat.cshtml" />
+    <Content Include="Views\Management\KhaoSat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

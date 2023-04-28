@@ -71,13 +71,12 @@
                     <div class="input-group">
                         @using (Html.BeginForm("Shop", "Product", FormMethod.Get))
                         {
-                            <input type="text" class="form-control" placeholder="Tìm kiếm...">
+            <input type="text" class="form-control" placeholder="Tìm kiếm...">
                             <div class="input-group-append">
                                 <span class="input-group-text bg-transparent text-primary">
                                     <i class="fa fa-search"></i>
                                 </span>
-                            </div>
-                        }
+                            </div>}
                     </div>
                 </form>
             </div>
@@ -131,6 +130,7 @@
                             <a href="/Product/Shop" class="nav-item nav-link">Shop</a>
                             <a href="/Cart/ShoppingCart" class="nav-item nav-link">Giỏ hàng</a>
                             <a href="/Home/Contact" class="nav-item nav-link">Liên hệ</a>
+                            <a href="/Home/KhaoSat" class="nav-item nav-link">Khảo sát</a>
                         </div>
 
                         @*Login Register*@
@@ -143,20 +143,18 @@
 
                             @if (Session["TaiKhoan"] == null || acc.IDKH == 0)
                             {
-                                <a href="/Home/Login"><button style=""> Đăng Nhập </button></a>
-                            }
+                <a href="/Home/Login"><button style=""> Đăng Nhập </button></a> }
                             else
                             {
                                 LTWNC.Models.KHACHHANG taikhoan = Session["TaiKhoan"] as LTWNC.Models.KHACHHANG;
 
-                                <a class="nav-link  dropdown-toggle" href="#">
-                                    <i class="fa-solid fa-user"></i> @taikhoan.HOTENKH
-                                </a>
+                <a class="nav-link  dropdown-toggle" href="#">
+                    <i class="fa-solid fa-user"></i> @taikhoan.HOTENKH
+                </a>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-item"><span style="color:black;">@Html.ActionLink("Tài khoản của tôi", "Edit", "Profile")</span></li>
                                     <li class="dropdown-item">@Html.ActionLink("Đăng xuất", "Logout", "Home")</li>
-                                </ul>
-                            }
+                                </ul>}
 
                         </div>
 
@@ -221,6 +219,7 @@
                             <a class="text-dark mb-2" href="/Product/Shop"><i class="fa fa-angle-right mr-2"></i>Shop</a>
                             <a class="text-dark mb-2" href="/Cart/ShoppingCart"><i class="fa fa-angle-right mr-2"></i>Giỏ hàng</a>
                             <a class="text-dark" href="/Home/Contact"><i class="fa fa-angle-right mr-2"></i>Liên hệ</a>
+                            <a class="text-dark" href="/Home/KhaoSat"><i class="fa fa-angle-right mr-2"></i>Khảo Sát</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-5">

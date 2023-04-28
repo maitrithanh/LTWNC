@@ -97,7 +97,9 @@ namespace LTWNC.Controllers
             List<CartItem> myCart = GetCart();
             KHACHHANG khach = new KHACHHANG();
 
-            if (Session["TaiKhoan"] == null || form["HOTENKH"] != null)
+            var pttt = form["pttt"];
+
+            if (Session["TaiKhoan"] == null)
             {
                 khach.IDKH = 0;
                 khach.DIACHI = form["DIACHI"];
@@ -113,6 +115,8 @@ namespace LTWNC.Controllers
                 ViewBag.ThongBaoCartNull = "Giỏ Hàng Trống Vui Lòng Thêm Sản Phẩm Vào Giỏ Hàng Trước Khi Đặt Hàng!";
                 return View("ShoppingCart");
             }
+            ViewBag.Pttt = pttt;
+            Session["Pttt"] = pttt;
             ViewBag.TotalNumber = GetTotalNumber();
             ViewBag.TotalPrice = GetTotalPrice();
             return View(myCart); //Trả về View xác nhận đặt hàng
@@ -121,13 +125,14 @@ namespace LTWNC.Controllers
         public ActionResult AgreeCart(FormCollection form)
         {
             KHACHHANG khach = Session["TaiKhoan"] as KHACHHANG;
+            var pttt = (string)Session["Pttt"];
             //Khách
             List<CartItem> myCart = GetCart(); //Giỏ hàng
             DONHANG DonHang = new DONHANG(); //Tạo mới đơn đặt hàng DonHang.IDCus = khach.IDCus;
             DonHang.NGAYDAT = DateTime.Now;
             DonHang.IDKH = khach.IDKH;
             DonHang.TRANGTHAIDH = 1;
-            DonHang.PHUONGTHUCTHANHTOAN = "COD";
+            DonHang.PHUONGTHUCTHANHTOAN = pttt;
             DonHang.DIACHINHANHANG = khach.DIACHI;
             DonHang.TRANGTHAIGH = "1";
             DonHang.TENNGUOINHAN = khach.HOTENKH;
