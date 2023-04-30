@@ -1,4 +1,4 @@
-﻿@model LTWNC.Models.SANPHAM
+@model LTWNC.Models.SANPHAM
 
 @{
     ViewBag.Title = @Html.DisplayFor(model => model.TENSP);
@@ -45,9 +45,9 @@
         <div class="price">
             <span class="gia">@Convert.ToDecimal(Model.DONGIA).ToString("N0")đ</span> <br/>
             <div class="row">
-                <div class="col-1"><img src="~/Content/Images/LOGO.png" style="width:50px; height:50px" /></div>
-                <div class="col-11" style="padding-left:20px">
-                    <span class="re">Gì cũng rẽ </span><i class="ti-help-alt"></i> <br/>
+                <div class="col-1"><img src="~/Content/Images/LOGO.png" style="width:70px; height:50px" /></div>
+                <div class="col-11" style="padding-left:30px">
+                    <span class="re">Gì cũng rẽ </span><i class="ti-help-alt"></i> </br>
                     <span style="font-size:14px;">Giá tốt nhất trên thị trường hiện tại</span>
                 </div>
             </div>
