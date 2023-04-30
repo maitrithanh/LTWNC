@@ -241,5 +241,13 @@ namespace LTWNC.Controllers
             var listProducts = database.SANPHAMs.OrderByDescending(sp => sp.TENSP).ToList();
             return PartialView(listProducts);
         }
+
+        public ActionResult KhuyenMai(int? page)
+        {
+            int pageSize = 12;
+            int pageNum = (page ?? 1);
+            var listProducts = database.KHUYENMAIs.ToList();
+            return View(listProducts.ToPagedList(pageNum, pageSize));
+        }
     }
 }

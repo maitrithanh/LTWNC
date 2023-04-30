@@ -117,6 +117,14 @@ namespace LTWNC.Controllers
                         Session["MaUser"] = taikhoan.ID;
                         Session["NhanVien"] = nhanvien;
                         Session["IDKH"] = taikhoan.ID;
+                        var logID = Convert.ToString(Session["MaUser"]);
+                        var checkVoucherSession = database.KHACHHANGs.Where(kh => kh.MAKH == logID).FirstOrDefault();
+                        if (checkVoucherSession != null)
+                        {
+                            var khuyenmai = database.KHUYENMAIs.FirstOrDefault(kh => kh.IDKM == checkVoucherSession.IDKM);
+                            Session["GIATRI"] = khuyenmai.GIATRI;
+                            Session["TENKM"] = khuyenmai.TENKM;
+                        }
                         if (taikhoan.VAITRO != "ADMIN")
                         {
                             return RedirectToAction("Index", "Home");

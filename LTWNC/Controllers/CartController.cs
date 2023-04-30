@@ -22,23 +22,32 @@ namespace LTWNC.Controllers
             return myCart;
         }
 
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(int id/*, int idkm*/)
         {
             //Lấy giỏ hàng hiện tại
             List<CartItem> myCart = GetCart();
             CartItem currentProduct = myCart.FirstOrDefault(sp => sp.IDSP == id);
+            // CartItem currentCoupon = myCart.FirstOrDefault(km => km.idkm == id);
             if (currentProduct == null)
             {
-                currentProduct = new CartItem(id);
+                currentProduct = new CartItem(id/*, idkm*/);
                 myCart.Add(currentProduct);
             }
+            /*else if (currentCoupon == null)
+            {
+                currentCoupon = new CartItem(idsp, idkm);
+                myCart.Add(currentCoupon);
+            }*/
             else
             {
                 currentProduct.SOLUONG++;
                 //Sản phẩm đã có trong giỏ thì tăng số lượng lên 1
             }
-            return RedirectToAction("ShoppingCart", "Cart", new { id = id });
+
+            return RedirectToAction("ShoppingCart", "Cart", new {id = id/*,idkm*/});
         }
+
+
 
         private int GetTotalNumber()
         {
@@ -55,6 +64,38 @@ namespace LTWNC.Controllers
             List<CartItem> myCart = GetCart();
             if (myCart != null)
                 totalPrice = myCart.Sum(sp => sp.THANHTIEN());
+            return totalPrice;
+        }
+
+        private decimal GetDiscountPrice()
+        {
+            decimal totalPrice = 0;
+            decimal tempprice = 0;
+            List<CartItem> myCart = GetCart();
+            if (myCart != null)
+            {
+                totalPrice = myCart.Sum(sp => sp.THANHTIEN());
+                if (Session["TaiKhoan"] != null)
+                {
+                    tempprice = totalPrice * (@Convert.ToDecimal(Session["GIATRI"]) / 100);
+                    totalPrice -= tempprice;
+                }
+            }
+            return totalPrice;
+        }
+
+        private decimal GetTotalPriceAfterDisCount()
+        {
+            decimal totalPrice = 0;
+            List<CartItem> myCart = GetCart();
+            if (myCart != null)
+            {
+                totalPrice = myCart.Sum(sp => sp.THANHTIEN());
+                if (Session["TaiKhoan"] != null)
+                {
+                    totalPrice *= (@Convert.ToDecimal(Session["GIATRI"]) / 100);
+                }
+            }
             return totalPrice;
         }
 
@@ -186,6 +227,8 @@ namespace LTWNC.Controllers
             //}
             ViewBag.TotalNumber = GetTotalNumber();
             ViewBag.TotalPrice = GetTotalPrice();
+            ViewBag.DiscountPrice = GetDiscountPrice();
+            ViewBag.TotalPriceAfterDiscount = GetTotalPriceAfterDisCount();
             return View(myCart);
         }
         public ActionResult ThanhToan()

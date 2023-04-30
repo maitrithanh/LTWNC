@@ -29,11 +29,13 @@ namespace LTWNC.Models
         public string DIACHI { get; set; }
         public string AVATARKH { get; set; }
         public string IDLKH { get; set; }
+        public Nullable<int> IDKM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONHANG> DONHANGs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FEEDBACK> FEEDBACKs { get; set; }
         public virtual LOAIKHACHHANG LOAIKHACHHANG { get; set; }
+        public virtual KHUYENMAI KHUYENMAI { get; set; }
     }
 }

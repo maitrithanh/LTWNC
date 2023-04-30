@@ -17,7 +17,7 @@
             <!-- Lọc theo giá Start -->
             <div class="border-bottom mb-4 pb-4">
                 <form>
-                    @using (Html.BeginForm("Shop", "Product"))
+                    @using (Html.BeginForm("SPTheoDanhMuc", "Product"))
                     {
                         <div class="row">
                             <div class="col-8"><h5 class="font-weight-semi-bold mb-4">Lọc theo giá</h5></div>
@@ -95,7 +95,7 @@
                 <form>
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                         <label class="custom-control-label" for="price-all">
-                            <a href="@Url.Action("Shop", "Product")" class="danhmuc">
+                            <a href="@Url.Action("SPTheoDanhMuc", "Product")" class="danhmuc">
                                 Tất cả
                             </a>
                         </label>
@@ -117,7 +117,6 @@
                                 @*Tìm kiếm theo tên*@
                                 @using (Html.BeginForm("Shop", "Product", FormMethod.Get))
                                 {
-
                                     <input type="text" class="form-control" id="SearchString" name="SearchString" placeholder="Tìm theo tên">
                                     <div class="input-group-append">
                                         <button type="submit" style="border:none">
@@ -135,23 +134,23 @@
                 <div class="row">
                     @foreach (var item in Model)
                     {
-                        <div class="card product-item border-0 mb-4" style="width:350px; height:501px">
-                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img class="img-fluid w-100" src="@Url.Content(item.HINHSP)" alt="@Html.DisplayFor(modelItem => item.TENSP)" />
+                        <div class="card product-item mb-4" id="product-card">
+                            <div class="card-header product-img position-relative overflow-hidden">
+                                <img class="w-100" src="@Url.Content(item.HINHSP)" alt="@Html.DisplayFor(modelItem => item.TENSP)" />
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 @*Tên sách*@
-                                <h6 class="text-truncate mb-3">@item.TENSP</h6>
+                                <h6 class="text-truncate mb-3" id="tensach">@item.TENSP</h6>
                                 <div class="d-flex justify-content-center">
                                     @*Giá sách*@
-                                    <h6>@Convert.ToDecimal(item.DONGIA).ToString("N0")đ</h6>
+                                    <h6 id="giasach">@Convert.ToDecimal(item.DONGIA).ToString("N0")đ</h6>
                                 </div>
                             </div>
-                            <div class="card-footer d-flex justify-content-between bg-light border">
+                            <div class="card-footer d-flex justify-content-between bg-light border" id="cardfooter">
                                 @*Chi tiết sách*@
-                                <a href="@Url.Action("ProductDetail", "Product", new { id=item.IDSP})" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+                                <a href="@Url.Action("ProductDetail", "Product", new { id=item.IDSP})" class="btn btn-sm text-dark p-0" id="chitietsach"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
                                 @*Thêm giỏ hàng*@
-                                <a href="@Url.Action("ShoppingCart", "Cart", new { id=item.IDSP})" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
+                                <a href="@Url.Action("ShoppingCart", "Cart", new { id=item.IDSP})" class="btn btn-sm text-dark p-0" id="themvaogiohang"><i class="fas fa-shopping-cart text-primary mr-1"></i>Thêm vào giỏ hàng</a>
                             </div>
                         </div>
 

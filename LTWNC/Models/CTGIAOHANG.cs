@@ -11,14 +11,12 @@ namespace LTWNC.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class CTGIAOHANG
     {
         public int IDGH { get; set; }
         public Nullable<int> IDDH { get; set; }
         public string VITRIGIAO { get; set; }
-        [DataType(DataType.Date)]
         public Nullable<System.DateTime> NGAYCAPNHAT { get; set; }
     
         public virtual DONHANG DONHANG { get; set; }

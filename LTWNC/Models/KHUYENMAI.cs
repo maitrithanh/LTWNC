@@ -14,10 +14,19 @@ namespace LTWNC.Models
     
     public partial class KHUYENMAI
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public KHUYENMAI()
+        {
+            this.KHACHHANGs = new HashSet<KHACHHANG>();
+        }
+    
         public int IDKM { get; set; }
         public string TENKM { get; set; }
         public Nullable<double> GIATRI { get; set; }
         public Nullable<System.DateTime> NGAYTAO { get; set; }
         public Nullable<System.DateTime> NGAYHET { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KHACHHANG> KHACHHANGs { get; set; }
     }
 }

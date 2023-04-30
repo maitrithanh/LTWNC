@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LTWNCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="LTWNCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CHUCVU">
           <Key>
             <PropertyRef Name="IDCV" />
@@ -86,6 +86,7 @@
           <Property Name="DIACHI" Type="nvarchar(max)" />
           <Property Name="AVATARKH" Type="nvarchar(max)" />
           <Property Name="IDLKH" Type="nchar" MaxLength="20" />
+          <Property Name="IDKM" Type="int" />
         </EntityType>
         <EntityType Name="KHAOSAT">
           <Key>
@@ -150,7 +151,7 @@
           <Property Name="MATKHAU" Type="nvarchar(max)" Nullable="false" />
           <Property Name="VAITRO" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__CTDH__IDDH__60A75C0F">
+        <Association Name="FK__CTDH__IDDH__4D94879B">
           <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="1" />
           <End Role="CTDH" Type="Self.CTDH" Multiplicity="*" />
           <ReferentialConstraint>
@@ -162,7 +163,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CTDH__IDSP__619B8048">
+        <Association Name="FK__CTDH__IDSP__4E88ABD4">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="CTDH" Type="Self.CTDH" Multiplicity="*" />
           <ReferentialConstraint>
@@ -174,7 +175,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DONHANG__IDKH__6383C8BA">
+        <Association Name="FK__DONHANG__IDKH__5070F446">
           <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="0..1" />
           <End Role="DONHANG" Type="Self.DONHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -234,6 +235,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_KHUYENMAI_KHACHHANG">
+          <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="0..1" />
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHUYENMAI">
+              <PropertyRef Name="IDKM" />
+            </Principal>
+            <Dependent Role="KHACHHANG">
+              <PropertyRef Name="IDKM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_NHANVIEN_CHUCVU">
           <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="0..1" />
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
@@ -285,15 +298,15 @@
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CTDH__IDDH__60A75C0F" Association="Self.FK__CTDH__IDDH__60A75C0F">
+          <AssociationSet Name="FK__CTDH__IDDH__4D94879B" Association="Self.FK__CTDH__IDDH__4D94879B">
             <End Role="DONHANG" EntitySet="DONHANG" />
             <End Role="CTDH" EntitySet="CTDH" />
           </AssociationSet>
-          <AssociationSet Name="FK__CTDH__IDSP__619B8048" Association="Self.FK__CTDH__IDSP__619B8048">
+          <AssociationSet Name="FK__CTDH__IDSP__4E88ABD4" Association="Self.FK__CTDH__IDSP__4E88ABD4">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="CTDH" EntitySet="CTDH" />
           </AssociationSet>
-          <AssociationSet Name="FK__DONHANG__IDKH__6383C8BA" Association="Self.FK__DONHANG__IDKH__6383C8BA">
+          <AssociationSet Name="FK__DONHANG__IDKH__5070F446" Association="Self.FK__DONHANG__IDKH__5070F446">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
             <End Role="DONHANG" EntitySet="DONHANG" />
           </AssociationSet>
@@ -313,6 +326,10 @@
             <End Role="LOAIKHACHHANG" EntitySet="LOAIKHACHHANG" />
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
           </AssociationSet>
+          <AssociationSet Name="FK_KHUYENMAI_KHACHHANG" Association="Self.FK_KHUYENMAI_KHACHHANG">
+            <End Role="KHUYENMAI" EntitySet="KHUYENMAI" />
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+          </AssociationSet>
           <AssociationSet Name="FK_NHANVIEN_CHUCVU" Association="Self.FK_NHANVIEN_CHUCVU">
             <End Role="CHUCVU" EntitySet="CHUCVU" />
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
@@ -326,7 +343,8 @@
             <End Role="SANPHAM" EntitySet="SANPHAM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LTWNCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -368,8 +386,8 @@
           <Property Name="IDGH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDDH" Type="Int32" />
           <Property Name="VITRIGIAO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DONHANG" Relationship="Self.FK_CTGIAOHANG_DONHANG" FromRole="CTGIAOHANG" ToRole="DONHANG" />
           <Property Name="NGAYCAPNHAT" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="DONHANG" Relationship="Self.FK_CTGIAOHANG_DONHANG" FromRole="CTGIAOHANG" ToRole="DONHANG" />
         </EntityType>
         <EntityType Name="DANHMUC">
           <Key>
@@ -421,9 +439,11 @@
           <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AVATARKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IDLKH" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="IDKM" Type="Int32" />
           <NavigationProperty Name="DONHANGs" Relationship="Self.FK__DONHANG__IDKH__5070F446" FromRole="KHACHHANG" ToRole="DONHANG" />
           <NavigationProperty Name="FEEDBACKs" Relationship="Self.FK_FEEDBACK_KHACHHANG" FromRole="KHACHHANG" ToRole="FEEDBACK" />
           <NavigationProperty Name="LOAIKHACHHANG" Relationship="Self.FK_KHACHHANG_LOAIKHACHHANG" FromRole="KHACHHANG" ToRole="LOAIKHACHHANG" />
+          <NavigationProperty Name="KHUYENMAI" Relationship="Self.FK_KHUYENMAI_KHACHHANG" FromRole="KHACHHANG" ToRole="KHUYENMAI" />
         </EntityType>
         <EntityType Name="KHAOSAT">
           <Key>
@@ -443,6 +463,7 @@
           <Property Name="GIATRI" Type="Double" />
           <Property Name="NGAYTAO" Type="DateTime" Precision="0" />
           <Property Name="NGAYHET" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="KHACHHANGs" Relationship="Self.FK_KHUYENMAI_KHACHHANG" FromRole="KHUYENMAI" ToRole="KHACHHANG" />
         </EntityType>
         <EntityType Name="LOAIKHACHHANG">
           <Key>
@@ -603,6 +624,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_KHUYENMAI_KHACHHANG">
+          <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="0..1" />
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHUYENMAI">
+              <PropertyRef Name="IDKM" />
+            </Principal>
+            <Dependent Role="KHACHHANG">
+              <PropertyRef Name="IDKM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SANPHAM_NHANVIEN">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
@@ -666,6 +699,10 @@
             <End Role="LOAIKHACHHANG" EntitySet="LOAIKHACHHANGs" />
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
           </AssociationSet>
+          <AssociationSet Name="FK_KHUYENMAI_KHACHHANG" Association="Self.FK_KHUYENMAI_KHACHHANG">
+            <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+          </AssociationSet>
           <AssociationSet Name="FK_SANPHAM_NHANVIEN" Association="Self.FK_SANPHAM_NHANVIEN">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
@@ -710,10 +747,10 @@
           <EntitySetMapping Name="CTGIAOHANGs">
             <EntityTypeMapping TypeName="LTWNCModel.CTGIAOHANG">
               <MappingFragment StoreEntitySet="CTGIAOHANG">
-                <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
                 <ScalarProperty Name="IDGH" ColumnName="IDGH" />
                 <ScalarProperty Name="IDDH" ColumnName="IDDH" />
                 <ScalarProperty Name="VITRIGIAO" ColumnName="VITRIGIAO" />
+                <ScalarProperty Name="NGAYCAPNHAT" ColumnName="NGAYCAPNHAT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -763,6 +800,7 @@
                 <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
                 <ScalarProperty Name="AVATARKH" ColumnName="AVATARKH" />
                 <ScalarProperty Name="IDLKH" ColumnName="IDLKH" />
+                <ScalarProperty Name="IDKM" ColumnName="IDKM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

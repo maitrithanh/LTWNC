@@ -151,15 +151,15 @@ namespace LTWNC.Controllers
             return View(database.DONHANGs.ToList());
         }
 
-        public ActionResult ThanhVien()
+        public ActionResult KhachHang()
         {
             TAIKHOAN user = Session["User"] as TAIKHOAN;
             if (user == null || user.VAITRO != "ADMIN")
             {
                 return RedirectToAction("Login", "User");
             }
-            var thanhvien = database.KHACHHANGs.OrderByDescending(tv => tv.IDKH).ToList();
-            return View(thanhvien);
+            var khachhang = database.KHACHHANGs.OrderByDescending(tv => tv.IDKH).ToList();
+            return View(khachhang);
         }
 
         [HttpGet]
@@ -189,6 +189,14 @@ namespace LTWNC.Controllers
             {
                 return Content(ex.ToString());
             }
+        }
+        public ActionResult QuanlyKhuyenMai()
+        {
+            return View(database.KHUYENMAIs.ToList());
+        }
+        public ActionResult QuanlyDanhMuc()
+        {
+            return View(database.DANHMUCs.ToList());
         }
     }
 }

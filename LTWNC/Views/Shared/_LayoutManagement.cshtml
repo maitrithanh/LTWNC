@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -32,14 +32,20 @@
                     <a href="/Management/QuanLyDonHang"><i class="fa-solid fa-box"></i> Quản Lý Đơn Hàng</a>
                 </li>
 
-                <li class="@(ViewBag.Current == "QuanLyThanhVien" ? "active" : "")">
+                <li class="@(ViewBag.Current == "QuanLyNhanVien" ? "active" : "")">
                     <a href="@Url.Action("Index", "Personnel")">
-                        <i class="fa-solid fa-user"></i> Quản Lý Thành Viên
+                        <i class="fa-solid fa-user"></i> Quản Lý Nhân Viên
+                    </a>
+                </li>
+
+                <li class="@(ViewBag.Current == "QuanLyKhachHang" ? "active" : "")">
+                    <a href="@Url.Action("KhachHang", "Management")">
+                        <i class="fa-solid fa-user"></i> Quản Lý Khách hàng
                     </a>
                 </li>
 
                 <li class="@(ViewBag.Current == "QuanLyDanhMuc" ? "active" : "")">
-                    <a href="@Url.Action("#", "#")">
+                    <a href="@Url.Action("QuanLyDanhMuc", "Management")">
                         <i class="fa-solid fa-box"></i> Quản Lý Danh Mục
                     </a>
                 </li>
@@ -47,6 +53,12 @@
                 <li class="@(ViewBag.Current == "KhaoSat" ? "active" : "")">
                     <a href="@Url.Action("KhaoSat", "Management")">
                         <i class="fa-solid fa-box"></i> Quản Lý Khảo Sát
+                    </a>
+                </li>
+
+                <li class="@(ViewBag.Current == "QuanlyKhuyenMai" ? "active" : "")">
+                    <a href="@Url.Action("QuanlyKhuyenMai", "Management")">
+                        <i class="fa-solid fa-tags"></i> Quản Lý Khuyến Mãi
                     </a>
                 </li>
 
