@@ -16,9 +16,10 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <style>
-    .border-top{
-        display:none;
+    .border-top {
+        display: none;
     }
+
     .dobong {
         box-shadow: 12px -20px 50px #aaa;
     }
@@ -56,8 +57,10 @@
                     <div class="col-xs-12 ">
                         <nav style="border:none;box-shadow:none; background-color:white;">
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                                   role="tab" aria-controls="nav-home" aria-selected="true">
+                                <a class=" nav-link active" id="nav-cd-tab" data-toggle="tab" href="#nav-cd"
+                                   role="tab" aria-controls="nav-cd" aria-selected="true">Chờ duyệt</a>
+                                <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                                   role="tab" aria-controls="nav-home" aria-selected="false">
                                     Chuẩn bị
                                 </a>
                                 <a class=" nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
@@ -69,13 +72,55 @@
                             </div>
                         </nav>
                         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                 aria-labelledby="nav-home-tab">
+                            <div class="tab-pane fade show active" id="nav-cd" role="tabpanel" aria-labelledby="nav-cd-tab">
                                 <div class="container">
                                     <div class="box-section-content">
                                         <table id="example" class="table table-striped" style="width:100%;">
                                             <thead>
                                                 <tr>
+                                                    <th>
+                                                        ID
+                                                    </th>
+                                                    <th>
+
+                                                        Sản Phẩm
+                                                    </th>
+                                                    <th>
+                                                        Số Lượng
+                                                    </th>
+                                                    <th>
+                                                        Thành Tiền
+                                                    </th>
+                                                    <th>
+                                                        Tiện ích
+
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            @foreach (var sp in Model)
+                                            {
+                                                int a;
+                                                int.TryParse(Convert.ToString(sp.TRANGTHAIGH), out a);
+
+                                                if (a == 0)
+                                                {
+                                                    @Html.Action("TrangThaiCB", "Profile", new { id = sp.IDDH })
+                                                }
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-home" role="tabpanel"
+                                 aria-labelledby="nav-home-tab">
+                                <div class="container">
+                                    <div class="box-section-content">
+                                        <table id="example1" class="table table-striped" style="width:100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        ID
+                                                    </th>
                                                     <th>
                                                         Sản Phẩm
                                                     </th>
@@ -86,7 +131,7 @@
                                                         Thành Tiền
                                                     </th>
                                                     <th>
-
+                                                        Tiện ích
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -110,6 +155,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>
+                                                        ID
+                                                    </th>
+                                                    <th>
                                                         Sản Phẩm
                                                     </th>
                                                     <th>
@@ -119,6 +167,7 @@
                                                         Thành Tiền
                                                     </th>
                                                     <th>
+                                                        Tiện ích
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -142,7 +191,10 @@
                                         <table id="example3" class="table table-striped" style="width:100%;">
                                             <thead>
                                                 <tr>
-                                                    <th style="width:400px">
+                                                    <th>
+                                                        ID
+                                                    </th>
+                                                    <th>
                                                         Sản Phẩm
                                                     </th>
                                                     <th>
@@ -151,8 +203,8 @@
                                                     <th>
                                                         Thành Tiền
                                                     </th>
-                                                    <th style="width: 220px;">
-
+                                                    <th style="width: 110px;">
+                                                        Tiện ích
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -176,6 +228,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>
+                                                        ID
+                                                    </th>
+                                                    <th>
                                                         Sản Phẩm
                                                     </th>
                                                     <th>
@@ -185,6 +240,7 @@
                                                         Thành Tiền
                                                     </th>
                                                     <th>
+                                                        Tiện ích
                                                     </th>
                                                 </tr>
                                             </thead>
@@ -206,52 +262,36 @@
                 </div>
             </div>
         </section>
-        <script src="~/Scripts/JavaScript/bootstrap.min.js"></script>
+        <script src="~/Scripts/Javascript/bootstrap.min.js"></script>
     </div>
 </div>
-<div class="parent-box-confirm">
-    <div class="box-confirm box-shadow shadow" style="z-index: 100; height: 250px; width: 500px;">
-        @Html.Action("Feadback", "Product")
-    </div>
-</div>
-<script type="text/javascript">
+
+<script>
     $(document).ready(function () {
         $('#example').DataTable();
     });
 </script>
-<script type="text/javascript">
+<script>
+    $(document).ready(function () {
+        $('#example1').DataTable();
+    });
+</script>
+<script>
     $(document).ready(function () {
         $('#example2').DataTable();
     });
 </script>
-<script type="text/javascript">
+<script>
     $(document).ready(function () {
         $('#example3').DataTable();
     });
 </script>
-<script type="text/javascript">
+<script>
     $(document).ready(function () {
         $('#example4').DataTable();
     });
 </script>
-<script type="text/javascript">
-    var btnDelete = document.querySelector('#btn-order');
-    var modelBox = document.querySelector('.box-confirm');
-    var parentModelBox = document.querySelector('.parent-box-confirm');
-    var btnCancel = document.querySelector('#btn-cancel');
 
-
-    btnDelete.onclick = function () {
-        modelBox.style.display = "block";
-        parentModelBox.style.display = "block";
-    }
-
-    btnCancel.onclick = function () {
-        modelBox.style.display = "none";
-        parentModelBox.style.display = "none";
-    }
-
-</script>
 <link rel="stylesheet" href="~/Content/Css/purchaseOrder.css" />
 
 

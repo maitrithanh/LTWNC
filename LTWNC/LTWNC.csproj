@@ -397,6 +397,11 @@
     <Content Include="Views\Personnel\Edit.cshtml" />
     <Content Include="Views\Personnel\Details.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\Profile\ChitietDonHang.cshtml" />
+    <Content Include="Views\Profile\LaySPFB.cshtml" />
+    <Content Include="Views\Profile\TrackingChitiet.cshtml" />
+    <Content Include="Views\Profile\DetailSPHuy.cshtml" />
+    <Content Include="Views\Profile\HienDHFeedback.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Views\Product\SanPhamCungLoai.cshtml" />
     <Content Include="Views\Product\LayHinh.cshtml" />

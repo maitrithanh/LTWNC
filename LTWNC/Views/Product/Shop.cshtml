@@ -1,4 +1,4 @@
-﻿@*@model IEnumerable<LTWNC.Models.SANPHAM>*@
+@*@model IEnumerable<LTWNC.Models.SANPHAM>*@
 @using PagedList.Mvc
 @using LTWNC.Models
 @model PagedList.PagedList<SANPHAM>
@@ -131,8 +131,8 @@
                 <div class="row"  style="padding-left: 20px;">
                     @foreach (var item in Model)
                     {
-                        <div class="card col-lg-4 product-item border-0 mb-4" style="width:350px; height:500px">
-                            <div style="height: 500px" class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                        <div class="card product-item border-0 mb-4" style="width:350px; height:501px; margin-right:40px;">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img class="img-fluid w-100" src="@Url.Content(item.HINHSP)" alt="@Html.DisplayFor(modelItem => item.TENSP)" />
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
